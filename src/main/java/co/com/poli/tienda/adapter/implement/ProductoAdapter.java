@@ -1,7 +1,6 @@
 package co.com.poli.tienda.adapter.implement;
 
 import co.com.poli.tienda.adapter.port.ProductoPort;
-import co.com.poli.tienda.domain.common.CategoriaProducto;
 import co.com.poli.tienda.domain.common.Producto;
 import co.com.poli.tienda.repository.port.ProductoRepositoryPort;
 import org.springframework.stereotype.Service;
@@ -23,7 +22,12 @@ public class ProductoAdapter implements ProductoPort {
     }
 
     @Override
-    public List<CategoriaProducto> consultarCategorias() {
-        return productoRepositoryPort.consultarCategorias();
+    public List<Producto> consultarProductos(String nombre) {
+        return productoRepositoryPort.consultarProductoPorNombre(nombre);
+    }
+
+    @Override
+    public List<Producto> listarProductos() {
+        return productoRepositoryPort.listarProductos();
     }
 }

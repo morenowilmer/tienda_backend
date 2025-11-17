@@ -62,6 +62,19 @@ public class PersonaController {
     }
 
     @ResponseBody
+    @GetMapping("/consultar/id/{idPersona}")
+    public ResponseEntity<GeneralResponse<Persona>> consultarPersona(@PathVariable("idPersona") @NotNull Integer idPersona) {
+        Persona response = personaPort.consultarPersonaPorId(idPersona);
+
+        if (Objects.nonNull(response) && Objects.nonNull(response.getId())) {
+            return ResponseEntity.ok(GeneralResponse.exito(response));
+        } else {
+            return ResponseEntity.internalServerError()
+                    .body(GeneralResponse.informacion(PERSONA_NO_ENCONTRADA.getValor()));
+        }
+    }
+
+    @ResponseBody
     @GetMapping("/tipos-documentos")
     public ResponseEntity<GeneralResponse<List<TipoDocumento>>> consultarTiposDocumentos() {
         List<TipoDocumento> response = personaPort.consultarTiposDocumentos();

@@ -2,7 +2,6 @@ package co.com.poli.tienda.controller;
 
 import co.com.poli.tienda.adapter.port.LoginPort;
 import co.com.poli.tienda.domain.common.GeneralResponse;
-import co.com.poli.tienda.domain.common.UsuarioDto;
 import co.com.poli.tienda.domain.enums.CodigoRespuestaEnum;
 import co.com.poli.tienda.domain.enums.MensajesEnum;
 import co.com.poli.tienda.domain.exception.NoAutorizadoException;
@@ -38,17 +37,6 @@ public class LoginController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(GeneralResponse.errorGenerico());
-        }
-    }
-
-    @ResponseBody
-    @PostMapping("/registro-usuario")
-    public ResponseEntity<GeneralResponse<Boolean>> registrarUsuario(@RequestBody @Valid UsuarioDto usuario) {
-        Boolean response = loginPort.registrarUSuario(usuario);
-        if (response) {
-            return ResponseEntity.ok(GeneralResponse.<Boolean>builder().respuesta(response).build());
-        } else {
-            return ResponseEntity.notFound().build();
         }
     }
 

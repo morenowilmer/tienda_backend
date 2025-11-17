@@ -13,7 +13,9 @@ public enum MensajesEnum {
     CONTRASENA_ERRONEA("Contraseña incorrecta"),
     PERSONA_NO_ENCONTRADA("Persona no encontrada"),
     ERROR_GUARDANDO_ACTUALIZANDO("Error guardando o actualizando el registro"),
-    PERSONA_REGISTRADA_ERROR("La persona ya se enceuntra registrada");
+    PERSONA_REGISTRADA_ERROR("La persona ya se encuentra registrada"),
+    USUARIO_REGISTRADO("El usuario ya se encuentra registrado.")
+    ;
 
     private String valor;
 }

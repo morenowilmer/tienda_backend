@@ -1,7 +1,6 @@
 package co.com.poli.tienda.adapter.port;
 
 
-import co.com.poli.tienda.domain.common.UsuarioDto;
 import co.com.poli.tienda.domain.exception.NoAutorizadoException;
 import co.com.poli.tienda.domain.requester.LoginRequester;
 import co.com.poli.tienda.domain.response.LoginResponse;
@@ -9,6 +8,5 @@ import co.com.poli.tienda.domain.response.LoginResponse;
 public interface LoginPort {
 
     LoginResponse login(LoginRequester loginRequester) throws NoAutorizadoException;
-    Boolean registrarUSuario(UsuarioDto usuario);
     Boolean cerrarSesion(String token);
 }

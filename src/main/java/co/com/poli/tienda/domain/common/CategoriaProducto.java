@@ -1,5 +1,6 @@
 package co.com.poli.tienda.domain.common;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 public class CategoriaProducto implements Serializable {
 
     private Integer id;
+    @NotBlank
     private String nombre;
     private String descripcion;
 }

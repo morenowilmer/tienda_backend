@@ -72,19 +72,6 @@ public class LoginAdapter implements LoginPort {
     }
 
     @Override
-    public Boolean registrarUSuario(UsuarioDto usuario) {
-        String contrasena = CifradoUtil.cifrar(usuario.getContrasena());
-        usuario.setContrasena(contrasena);
-        usuario.setActivo("SI");
-        try {
-            usuarioRepositoryPort.guardarUsuario(usuario);
-            return true;
-        }  catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override
     public Boolean cerrarSesion(String token) {
         sesionRepositoryPort.eliminarSesion(token);
         return true;

@@ -10,5 +10,6 @@ public interface PersonaPort {
 
     Persona guardarPersona(Persona persona) throws TiendaException;
     Persona consultarPersona(Integer tipoDocumento, String identificacion);
+    Persona consultarPersonaPorId(Integer idPersona);
     List<TipoDocumento> consultarTiposDocumentos();
 }

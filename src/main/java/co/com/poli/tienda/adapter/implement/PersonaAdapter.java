@@ -40,6 +40,11 @@ public class PersonaAdapter implements PersonaPort {
     }
 
     @Override
+    public Persona consultarPersonaPorId(Integer idPersona) {
+        return personaRepository.findById(idPersona);
+    }
+
+    @Override
     public List<TipoDocumento> consultarTiposDocumentos() {
         return personaRepository.consultarTiposDocumentosActivos();
     }
