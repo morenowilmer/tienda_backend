@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductoRepository implements ProductoRepositoryPort {
@@ -38,5 +39,11 @@ public class ProductoRepository implements ProductoRepositoryPort {
     public List<Producto> listarProductos() {
         List<ProductoEntity> productos = productoRepository.findAll();
         return productos.stream().map(p -> modelMapper.map(p, Producto.class)).toList();
+    }
+
+    @Override
+    public Producto buscarPorId(Integer idProducto) {
+        Optional<ProductoEntity> entity = productoRepository.findById(idProducto);
+        return (entity.isPresent()) ? modelMapper.map(entity, Producto.class) : null;
     }
 }

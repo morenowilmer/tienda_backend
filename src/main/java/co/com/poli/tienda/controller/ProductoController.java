@@ -55,4 +55,16 @@ public class ProductoController {
             return ResponseEntity.internalServerError().body(GeneralResponse.errorGenerico());
         }
     }
+
+    @ResponseBody
+    @GetMapping("/buscar/id/{idProducto}")
+    public ResponseEntity<GeneralResponse<Producto>> consultarProductos(
+            @PathVariable("idProducto") @NotNull Integer idProducto) {
+        Producto response = productoPort.buscarPorId(idProducto);
+        if (Objects.nonNull(response)) {
+            return ResponseEntity.ok(GeneralResponse.exito(response));
+        } else {
+            return ResponseEntity.internalServerError().body(GeneralResponse.errorGenerico());
+        }
+    }
 }

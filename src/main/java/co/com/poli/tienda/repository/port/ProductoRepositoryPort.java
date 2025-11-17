@@ -9,4 +9,5 @@ public interface ProductoRepositoryPort {
     Producto guardarProducto(Producto producto);
     List<Producto> consultarProductoPorNombre(String nombreProducto);
     List<Producto> listarProductos();
+    Producto buscarPorId(Integer idProducto);
 }

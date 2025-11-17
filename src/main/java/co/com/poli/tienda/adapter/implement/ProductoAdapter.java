@@ -30,4 +30,9 @@ public class ProductoAdapter implements ProductoPort {
     public List<Producto> listarProductos() {
         return productoRepositoryPort.listarProductos();
     }
+
+    @Override
+    public Producto buscarPorId(Integer idProducto) {
+        return productoRepositoryPort.buscarPorId(idProducto);
+    }
 }

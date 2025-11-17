@@ -9,4 +9,5 @@ public interface ProductoPort {
     Producto guardarProducto(Producto producto);
     List<Producto> consultarProductos(String nombre);
     List<Producto> listarProductos();
+    Producto buscarPorId(Integer idProducto);
 }
