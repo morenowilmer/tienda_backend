@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//@JacksonXmlRootElement(localName = "DetallesFactura")
 public class DetalleFactura implements Serializable {
 
     private Integer id;
@@ -18,4 +19,5 @@ public class DetalleFactura implements Serializable {
     private Integer precioProducto;
     private Integer impuesto;
     private Integer valorTotal;
+    private String nombreProducto;
 }

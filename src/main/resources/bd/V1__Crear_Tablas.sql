@@ -30,12 +30,11 @@ create table usuario (
     foreign key (per_id) references persona(id)
 );
 
-create table categortia_producto (
+create table categoria_producto (
 	id int auto_increment primary key,
     nombre varchar(70) not null,
     descripcion varchar(250) null
 );
-
 
 create table producto (
 	id int auto_increment primary key,
@@ -46,16 +45,18 @@ create table producto (
     precio_compra int not null,
     precio_venta int not null,
     id_categoria int not null,
-    foreign key (id_categoria) references categortia_producto(id)
+    foreign key (id_categoria) references categoria_producto(id)
 );
 
 create table factura (
 	id char(36) primary key not null,
+    id_persona int not null,
     total_articulos int not null,
     total_venta int not null,
     total_impuesto int not null,
     total_factura int not null,
-    fecha_compra datetime not null
+    fecha_compra datetime not null,
+    foreign key (id_persona) references persona(id)
 );
 
 create table detalle_factura (
@@ -64,6 +65,16 @@ create table detalle_factura (
     id_producto int not null,
     total_items int not null,
     precio_producto int not null,
+    impuesto int not null,
     valor_total int not null,
     foreign key (id_factura) references factura(id)
+);
+
+CREATE TABLE sesion (
+	id int auto_increment primary key,
+    usuario varchar(20) not null,
+    token varchar(250) not null,
+    fecha_Inicio datetime not null,
+    fecha_Fin datetime not null,
+    foreign key (usuario) references usuario(usuario)
 );
