@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Instalando dependencias...
+      - apt-get update
+
+  pre_build:
+    commands:
+      # Opcional: Ejecutar pruebas unitarias antes de la compilación
+      - echo Ejecutando pruebas...
+      # mvn test
+
+  build:
+    commands:
+      - echo Iniciando la compilación del JAR...
+      - mvn package -DskipTests
+
+artifacts:
+  files:
+    - 'target/*.jar'
+  discard-paths: yes
