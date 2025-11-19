@@ -25,6 +25,6 @@ public class DetalleFacturaEntity implements Serializable {
     private Integer impuesto;
     private Integer valorTotal;
 
-    @Formula("(SELECT p.nombre FROM PRODUCTO p WHERE p.id = ID_PRODUCTO)")
+    @Formula("(SELECT p.nombre FROM producto p WHERE p.id = ID_PRODUCTO)")
     private String nombreProducto;
 }
