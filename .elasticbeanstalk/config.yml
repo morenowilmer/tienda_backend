@@ -1,0 +1,12 @@
+branch-defaults:
+  master:
+    environment: tienda-backend-pro
+    group_suffix: null
+  main:
+    environment: tienda-backend-prod
+global:
+  application_name: tienda-backend
+  default_platform: Corretto 21 running on 64bit Amazon Linux 2023
+  default_region: us-east-1
+  sc: git
+  workspace_type: Application
