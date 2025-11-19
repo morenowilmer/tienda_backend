@@ -2,6 +2,7 @@ package co.com.poli.tienda.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Formula;
 
 import java.io.Serializable;
 
@@ -23,4 +24,7 @@ public class DetalleFacturaEntity implements Serializable {
     private Integer precioProducto;
     private Integer impuesto;
     private Integer valorTotal;
+
+    @Formula("(SELECT p.nombre FROM PRODUCTO p WHERE p.id = ID_PRODUCTO)")
+    private String nombreProducto;
 }
